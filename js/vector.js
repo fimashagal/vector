@@ -11,9 +11,7 @@ define(function (require) {
     function Vector(...dims){
 
         dims = dims.filter(item => {
-            if(Array.isArray(item)
-                && item.length >= 2
-                && item.every(item => Typo.isNumber(item))){
+            if(Array.isArray(item) && item.length >= 2 && item.every(item => Typo.isNumber(item))){
                 return item;
             }
         });
@@ -23,13 +21,8 @@ define(function (require) {
         }
 
         function Vector (dimensions) {
-            this.states = new Store({
-                initialized: false
-            });
-            this.values = new Store({
-                size: 0,
-                dimensions: {}
-            });
+            this.states = new Store({ initialized: false });
+            this.values = new Store({ size: 0, dimensions: {} });
             return Typo.isDef(dimensions) ? this.initialize(dimensions) : this;
         }
 

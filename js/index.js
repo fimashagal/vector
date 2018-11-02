@@ -7,4 +7,6 @@ define(function (require) {
 
     vectorA.sequence(console.log, false, 0, 10);
 
+
+
 });

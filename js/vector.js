@@ -60,8 +60,8 @@ define(function (require) {
 
         Vector.prototype.sequence = function (fn = null, reverse = false, fromFrame = 0, toFrame = this.values.size){
             if(!Typo.isFn(fn)) return;
-            let frame;
-            let iterator = reverse ? -1 : 1;
+            let frame,
+                iterator = reverse ? -1 : 1;
 
             if(reverse){
                 fromFrame += toFrame;

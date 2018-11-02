@@ -302,6 +302,7 @@ Store.prototype._createWorker = function (options = {}) {
         this.stopWorker(key);
     };
     return this;
+
 };
 
 Store.prototype._loadJSON = function (key, url) {

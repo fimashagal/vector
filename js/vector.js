@@ -22,7 +22,7 @@ define(function (require) {
 
         function Vector (dimensions) {
             this.states = new Store({ initialized: false });
-            this.values = new Store({ size: 0, dimensions: {} });
+            this.values = new Store({ size: 0, volume: 0, dimensions: {} });
             return Typo.isDef(dimensions) ? this.initialize(dimensions) : this;
         }
 
@@ -37,14 +37,15 @@ define(function (require) {
 
         Vector.prototype.applyDimensions = function (dimensions) {
             const {values} = this;
+            values.volume = dimensions.length;
             let size = getGreatestLen(dimensions),
-                keys = getKeysByLen(dimensions.length);
+                keys = getKeysByLen(values.volume);
             if(size < 2) {
                 size = 2;
             }
             values.removeLock("size")
                   .removeLock("dimensions");
-            for(let i = 0, key; i < dimensions.length; i++){
+            for(let i = 0, key; i < values.volume; i++){
                 key = keys[i];
                 values.dimensions[key] = arrangeArray(dimensions[i], size);
             }

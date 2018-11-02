@@ -27,28 +27,30 @@ define(function (require) {
         }
 
         Vector.prototype.initialize = function (dimensions) {
-            if(this.states.isnt("initialized")){
+            const {states} = this;
+            if(states.isnt("initialized")){
                 this.applyDimensions(dimensions);
-                this.states.initialized = true;
+                states.initialized = true;
             }
             return this;
         };
 
         Vector.prototype.applyDimensions = function (dimensions) {
+            const {values} = this;
             let size = getGreatestLen(dimensions),
                 keys = getKeysByLen(dimensions.length);
             if(size < 2) {
                 size = 2;
             }
-            this.values.removeLock("size")
-                        .removeLock("dimensions");
+            values.removeLock("size")
+                  .removeLock("dimensions");
             for(let i = 0, key; i < dimensions.length; i++){
                 key = keys[i];
-                this.values.dimensions[key] = arrangeArray(dimensions[i], size);
+                values.dimensions[key] = arrangeArray(dimensions[i], size);
             }
-            this.values.size = size;
-            this.values.addLock("size")
-                        .addLock("dimensions");
+            values.size = size;
+            values.addLock("size")
+                  .addLock("dimensions");
             return this;
         };
 

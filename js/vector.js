@@ -54,7 +54,6 @@ define(function (require) {
 
         Vector.prototype.sequence = function (fn = null, reverse = false, fromFrame = 0, toFrame = this.values.size){
             if(!Typo.isFn(fn)) return;
-            let frame;
             const isReversed = reverse === true;
             let iterator = isReversed ? -1 : 1;
 
@@ -64,8 +63,7 @@ define(function (require) {
                 fromFrame -= toFrame;
             }
 
-            for(let i = fromFrame; isReversed ? i > toFrame : i < toFrame; i += iterator){
-                frame = [];
+            for(let i = fromFrame, frame = []; isReversed ? (i > toFrame) : (i < toFrame); i += iterator){
                 for(let array of Object.values(this.values.dimensions)){
                     frame.push(array[i]);
                 }

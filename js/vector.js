@@ -64,7 +64,7 @@ define(function (require) {
                 toFrame = fromFrame - toFrame;
                 fromFrame -= toFrame;
             }
-            console.log(fromFrame, toFrame);
+
             for(let i = fromFrame; reverse === true ? i > toFrame : i < toFrame; i += iterator){
                 frame = [];
                 for(let array of Object.values(this.values.dimensions)){

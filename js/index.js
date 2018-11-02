@@ -2,8 +2,8 @@
 define(function (require) {
     const Vector = require("./vector");
 
-    const vectorA = new Vector([0, 1], [0, 10], [0, 100]);
+    const vectorA = new Vector([0, 10], [0, 15], [0, 30]);
 
-    vectorA.sequence(console.log, false, 9, 12);
+    vectorA.sequence(console.log, false, 0, 10);
 
 });

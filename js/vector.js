@@ -37,21 +37,24 @@ define(function (require) {
 
         Vector.prototype.applyDimensions = function (dimensions) {
             const {values} = this;
+            values.removeLock("size")
+                  .removeLock("dimensions")
+                  .removeLock("volume");
             values.volume = dimensions.length;
             let size = getGreatestLen(dimensions),
                 keys = getKeysByLen(values.volume);
             if(size < 2) {
                 size = 2;
             }
-            values.removeLock("size")
-                  .removeLock("dimensions");
+
             for(let i = 0, key; i < values.volume; i++){
                 key = keys[i];
                 values.dimensions[key] = arrangeArray(dimensions[i], size);
             }
             values.size = size;
             values.addLock("size")
-                  .addLock("dimensions");
+                  .addLock("dimensions")
+                  .addLock("volume");
             return this;
         };
 

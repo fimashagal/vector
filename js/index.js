@@ -5,8 +5,6 @@ define(function (require) {
 
     const vectorA = new Vector([0, 10], [0, 15], [0, 30]);
 
-    vectorA.sequence(console.log, false, 0, 10);
-
-
+    vectorA.sequence(console.log);
 
 });

@@ -46,7 +46,6 @@ define(function (require) {
             if(size < 2) {
                 size = 2;
             }
-
             for(let i = 0, key; i < values.volume; i++){
                 key = keys[i];
                 values.dimensions[key] = arrangeArray(dimensions[i], size);

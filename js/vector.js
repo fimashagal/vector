@@ -2,10 +2,11 @@
 define(function (require) {
 
     const getGreatestLen = require("get.greatest.len");
+    const getKeysByLen = require("get.keys.by.len");
     const arrangeArray = require("arrange.array");
     const Store = require("store");
     const Typo = ((Instance = require("typo")) => new Instance())();
-    const abc = "abcdefghijklmnopqrstuvwxyz";
+
 
     function Vector(...dims){
 
@@ -42,7 +43,7 @@ define(function (require) {
 
         Vector.prototype.applyDimensions = function (dimensions) {
             let size = getGreatestLen(dimensions),
-                keys = abc.substr(abc.length - dimensions.length).split("");
+                keys = getKeysByLen(dimensions.length);
             if(size < 2) {
                 size = 2;
             }

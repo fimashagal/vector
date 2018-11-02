@@ -1,11 +1,11 @@
 "use strict";
 define(function (require) {
 
-    const getGreatestLen = require("get.greatest.len");
-    const getKeysByLen = require("get.keys.by.len");
-    const arrangeArray = require("arrange.array");
-    const Store = require("store");
-    const Typo = ((Instance = require("typo")) => new Instance())();
+    const getGreatestLen = require("get.greatest.len"),
+          getKeysByLen = require("get.keys.by.len"),
+          arrangeArray = require("arrange.array"),
+          Store = require("store"),
+          Typo = ((Instance = require("typo")) => new Instance())();
 
 
     function Vector(...dims){

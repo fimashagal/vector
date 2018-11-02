@@ -41,7 +41,7 @@ define(function (require) {
                 size = 2;
             }
             this.values.removeLock("size")
-                .removeLock("dimensions");
+                        .removeLock("dimensions");
             for(let i = 0, key; i < dimensions.length; i++){
                 key = keys[i];
                 this.values.dimensions[key] = arrangeArray(dimensions[i], size);
